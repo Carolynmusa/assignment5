@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Joe's Hot Dog</title>
-    <h1>Menu</h1>
-    <h2>Joe’s has 4 items: hotdogs,
-fries, soda and sauerkraut.</h2>
 </head>
 <body>
+
+<h1>Menu</h1>
+
 <script>
 let menu = {
   "hotdog": 4,
@@ -15,6 +15,7 @@ let menu = {
   "soda": 1.50,
   "sauerkraut": 1
 };
+
 let menuJSON = `{
   "items": [
     { "name": "hotdog", "price": 4 },
@@ -23,7 +24,8 @@ let menuJSON = `{
     { "name": "sauerkraut", "price": 1 }
   ]
 }`;
-let menu = JSON.parse(menuJSON);
+let menuFromJSON = JSON.parse(menuJSON);
+
 function MenuItem(name, price) {
   this.name = name;
   this.price = price;
@@ -35,7 +37,31 @@ let soda = new MenuItem("soda", 1.50);
 let sauerkraut = new MenuItem("sauerkraut", 1);
 
 let menuItems = [hotdog, fries, soda, sauerkraut];
-      
-    </script>>
+
+function displayMenuFromJSON() {
+  let menuList = document.createElement("ul");
+  menuFromJSON.items.forEach(item => {
+    let listItem = document.createElement("li");
+    listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+    menuList.appendChild(listItem);
+  });
+  document.body.appendChild(menuList);
+}
+
+function displayMenuFromArray() {
+  let menuList = document.createElement("ul");
+  menuItems.forEach(item => {
+    let listItem = document.createElement("li");
+    listItem.textContent = `${item.name} - $${item.price.toFixed(2)}`;
+    menuList.appendChild(listItem);
+  });
+  document.body.appendChild(menuList);
+}
+
+displayMenuFromJSON();
+displayMenuFromArray();
+</script>
+
 </body>
 </html>
+
