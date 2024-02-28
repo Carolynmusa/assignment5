@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Joe's Hot Dog</title>
+    <h1>Menu</h1>
+    <h2>Joe’s has 4 items: hotdogs,
+fries, soda and sauerkraut.</h2>
+</head>
+<body>
+<script>
+let menu = {
+  "hotdog": 4,
+  "fries": 3.50,
+  "soda": 1.50,
+  "sauerkraut": 1
+};
+let menuJSON = `{
+  "items": [
+    { "name": "hotdog", "price": 4 },
+    { "name": "fries", "price": 3.50 },
+    { "name": "soda", "price": 1.50 },
+    { "name": "sauerkraut", "price": 1 }
+  ]
+}`;
+let menu = JSON.parse(menuJSON);
+function MenuItem(name, price) {
+  this.name = name;
+  this.price = price;
+}
+
+let hotdog = new MenuItem("hotdog", 4);
+let fries = new MenuItem("fries", 3.50);
+let soda = new MenuItem("soda", 1.50);
+let sauerkraut = new MenuItem("sauerkraut", 1);
+
+let menuItems = [hotdog, fries, soda, sauerkraut];
+      
+    </script>>
+</body>
+</html>
